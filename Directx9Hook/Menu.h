@@ -2,6 +2,9 @@
 #include <d3d9.h>
 
 #define KEY_OPENMENU VK_INSERT
+#define FindHandleByWindowName 0
+#define WindowName "Don't Starve"
+
 extern bool MenuOpen;
 extern bool IsRunning;
 
