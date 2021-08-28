@@ -105,6 +105,15 @@ DWORD WINAPI MainThread(HMODULE hmodule)
 
     //Unhook
     Patch((BYTE*)d3d9Device[42], EndSceneBytes, 7);
+
+    #if FindHandleByWindowName
+        window = FindWindowA(NULL, WindowName);
+    #else
+        D3DDEVICE_CREATION_PARAMETERS CP;
+        pDevice->GetCreationParameters(&CP);
+        window = CP.hFocusWindow;
+    #endif // 0
+
     SetWindowLongPtr(window, GWL_WNDPROC, (LONG_PTR)oWndProc);
 
 
